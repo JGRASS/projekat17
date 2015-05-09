@@ -9,6 +9,7 @@ import sistemskeoperacije.SOObrisiKorisnika;
 import sistemskeoperacije.SOObrisiTransakciju;
 import sistemskeoperacije.SOSacuvajUFajl;
 import sistemskeoperacije.SOUcitajIzFajla;
+import sistemskeoperacije.SOVratiKorisnika;
 import sistemskeoperacije.SOVratiSveTransakcije;
 
 
@@ -17,12 +18,16 @@ public class SistemskiKontroler {
 	
 	private LinkedList<Korisnik> korisnici = new LinkedList<Korisnik>();
 	
-	public void dodajKorsinika(String ime,String adresa, String vrstaRacuna) throws Exception{
+	public void dodajKorsinika(String ime,String adresa, String vrstaRacuna) {
 		SODodajKorisnika.dodajKorisnika(ime, adresa, vrstaRacuna, korisnici);
 	}
 
-	public void obrisiKorisnika(String ime, String adresa, String vrstaRacuna) throws Exception{
+	public void obrisiKorisnika(String ime, String adresa, String vrstaRacuna) {
 		SOObrisiKorisnika.obrisiKorisnika(ime, adresa, vrstaRacuna, korisnici);
+	}
+	
+	public Korisnik vratiKorisnika(String ime, String adresa, String vrstaRacuna){
+		return SOVratiKorisnika.vratiKorisnika(ime, adresa, vrstaRacuna, korisnici);
 	}
 	
 	public void dodajTransakciju(GregorianCalendar datum, double iznos, String valuta,Korisnik k){

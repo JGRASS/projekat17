@@ -6,7 +6,7 @@ import banka.Korisnik;
 
 public class SODodajKorisnika {
 	
-	public static void dodajKorisnika(String ime, String adresa, String vrstaRacuna,LinkedList<Korisnik> postojeci) throws Exception{
+	public static void dodajKorisnika(String ime, String adresa, String vrstaRacuna,LinkedList<Korisnik> postojeci) {
 		Korisnik k = new Korisnik();
 		k.setIme(ime);
 		k.setAdresa(adresa);
@@ -17,7 +17,7 @@ public class SODodajKorisnika {
 			postojeci.add(k);
 			
 		}
-		else throw new Exception("Takav korisnik vec postoji!");
+		else throw new  RuntimeException("Takav korisnik vec postoji!");
 	}
 
 }
