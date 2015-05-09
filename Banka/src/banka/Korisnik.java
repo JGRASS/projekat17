@@ -1,10 +1,15 @@
 package banka;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Korisnik {
+public class Korisnik implements Serializable {
 	
-	 private String ime;
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String ime;
 	 private String adresa;
 	 private String vrstaRacuna;
 	 

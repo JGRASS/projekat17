@@ -21,7 +21,7 @@ public class SODodajKorisnikaTest {
 	}
 
 	@Test (expected =java.lang.Exception.class)
-	public void testDodajKorisnika() throws Exception {
+	public void testDodajKorisnikaExc() throws Exception {
 		LinkedList<Korisnik> kor = new LinkedList<Korisnik>();
 		SODodajKorisnika.dodajKorisnika("Pera", "Moja 22", "dinarski",kor);
 		SODodajKorisnika.dodajKorisnika("Pera", "Moja 22", "dinarski",kor);

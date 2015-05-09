@@ -1,9 +1,14 @@
 package banka;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Transakcija {
+public class Transakcija implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private GregorianCalendar datumTransakcije;
 	private double iznosTransakcije;
 	private String valuta;
@@ -26,5 +31,56 @@ public class Transakcija {
 	public void setValuta(String valuta) {
 		this.valuta = valuta;
 	}
+	@Override
+	public String toString() {
+		return "Datum i vreme transackije: " + datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(datumTransakcije.get(GregorianCalendar.MONTH)+1)+
+				"/"+datumTransakcije.get(GregorianCalendar.YEAR)+" "+datumTransakcije.get(GregorianCalendar.HOUR_OF_DAY)+":"
+				+datumTransakcije.get(GregorianCalendar.MINUTE)
+				+ "\nIznos:" + iznosTransakcije + " "+ valuta ;
+				
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((datumTransakcije == null) ? 0 : datumTransakcije.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(iznosTransakcije);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((valuta == null) ? 0 : valuta.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transakcija other = (Transakcija) obj;
+		if (datumTransakcije == null) {
+			if (other.datumTransakcije != null)
+				return false;
+		} else if (datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH)!=(other.datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH))||
+				datumTransakcije.get(GregorianCalendar.MONTH)!=(other.datumTransakcije.get(GregorianCalendar.MONTH))||
+				datumTransakcije.get(GregorianCalendar.YEAR)!=(other.datumTransakcije.get(GregorianCalendar.YEAR))||
+				datumTransakcije.get(GregorianCalendar.HOUR_OF_DAY)!=(other.datumTransakcije.get(GregorianCalendar.HOUR_OF_DAY))||
+				datumTransakcije.get(GregorianCalendar.MINUTE)!=(other.datumTransakcije.get(GregorianCalendar.MINUTE)))
+			return false;
+		if (Double.doubleToLongBits(iznosTransakcije) != Double
+				.doubleToLongBits(other.iznosTransakcije))
+			return false;
+		if (valuta == null) {
+			if (other.valuta != null)
+				return false;
+		} else if (!valuta.equals(other.valuta))
+			return false;
+		return true;
+	}
+	
+	
 
 }
