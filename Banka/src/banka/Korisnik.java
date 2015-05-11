@@ -1,7 +1,15 @@
 package banka;
 
 import java.io.Serializable;
+
 import java.util.LinkedList;
+/**
+ * Klasa Korisnik
+ * domenska klasa koja definise
+ * korisnika banke
+ * @author Petar Jelenkovic
+ *
+ */
 
 public class Korisnik implements Serializable {
 	
@@ -9,13 +17,26 @@ public class Korisnik implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Ime korisnika
+	 */
 	private String ime;
+	/**
+	 * Adresa korsinika
+	 */
 	 private String adresa;
+	 /**
+	  * Vrsta racuna korisnika
+	  */
 	 private String vrstaRacuna;
-	 
-	 
-	private LinkedList<Transakcija> transakcije;
-	
+	 /**
+	  * Lista transakcija korisnika
+	  */
+	 private LinkedList<Transakcija> transakcije;
+	/**
+	 * Javni konstruktor koji inicijalizuje
+	 * listu transakcije
+	 */
 	public Korisnik(){
 		transakcije = new LinkedList<Transakcija>();
 	}
@@ -39,6 +60,12 @@ public class Korisnik implements Serializable {
 	public String getVrstaRacuna() {
 		return vrstaRacuna;
 	}
+	/**
+	 * Odredjuje vrstu racuna korisnika
+	 * @param vrstaRacuna
+	 * @throws java.lang.RuntimeException kada se unese vrednost
+	 * razlicita od "devizni" ili "dinarski"
+	 */
 
 	public void setVrstaRacuna(String vrstaRacuna) {
 		if(vrstaRacuna.equals("devizni") || vrstaRacuna.equals("dinarski"))
@@ -70,6 +97,11 @@ public class Korisnik implements Serializable {
 				+ ((vrstaRacuna == null) ? 0 : vrstaRacuna.hashCode());
 		return result;
 	}
+	/**
+	 * Equals metoda koja poredi korisnike
+	 * prema vrsti racuna, imenu i adresi
+	 * i NE poredi liste transakcija 
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -97,6 +129,10 @@ public class Korisnik implements Serializable {
 			return false;
 		return true;
 	}
+	/**
+	 * @return vraca string oblika:
+	 * "Ime korisnika:"ime" Adresa:"adresa" Vrsta racuna:"vrstaRacuna
+	 */
 
 	@Override
 	public String toString() {

@@ -3,6 +3,13 @@ package banka;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+/**
+ * Klasa Transakcija
+ * domenska klasa koja definise jednu transakciju
+ * jednog korisnika
+ * @author Petar Jelenkovic
+ *
+ */
 public class Transakcija implements Serializable{
 	
 	/**
@@ -31,6 +38,11 @@ public class Transakcija implements Serializable{
 	public void setValuta(String valuta) {
 		this.valuta = valuta;
 	}
+	/**
+	 * @return string oblika:
+	 * "Datum i vreme transackije: " dan u mesecu"/"mesec"/"godina" "sat":"minut"
+	 *	"Iznos:"iznos Transakcije" "valuta
+	 */
 	@Override
 	public String toString() {
 		return "Datum i vreme transackije: " + datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(datumTransakcije.get(GregorianCalendar.MONTH)+1)+
@@ -52,6 +64,11 @@ public class Transakcija implements Serializable{
 		result = prime * result + ((valuta == null) ? 0 : valuta.hashCode());
 		return result;
 	}
+	/**
+	 * Equals metoda koje poredi transakcije prema
+	 * valuti, iznosu i datumu gde se uzimaju u obzir
+	 * datum i vreme u satima i minutima
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
