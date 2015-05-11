@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import banka.Korisnik;
 
-public class SODodajKorisnikaTest {
+public class SOVratiKorisnikaTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,21 +21,20 @@ public class SODodajKorisnikaTest {
 	}
 
 	@Test (expected =java.lang.Exception.class)
-	public void testDodajKorisnikaExc()  {
+	public void testVratiKorisnikaExc() {
 		LinkedList<Korisnik> kor = new LinkedList<Korisnik>();
-		SODodajKorisnika.dodajKorisnika("Pera", "Moja 22", "dinarski",kor);
-		SODodajKorisnika.dodajKorisnika("Pera", "Moja 22", "dinarski",kor);
+		SOVratiKorisnika.vratiKorisnika("AA", "Nesto", "devizni", kor);
 	}
 	@Test
-	public void testDodajKorisnika() {
+	public void testVratiKorisnika() {
 		LinkedList<Korisnik> kor = new LinkedList<Korisnik>();
-		SODodajKorisnika.dodajKorisnika("Zika", "Prva 84", "devizni", kor);
+		SODodajKorisnika.dodajKorisnika("Ja", "Mill", "devizni", kor);
 		Korisnik k = new Korisnik();
-		k.setIme("Zika");
-		k.setAdresa("Prva 84");
+		k.setIme("Ja");
+		k.setAdresa("Mill");
 		k.setVrstaRacuna("devizni");
 		
-		assertTrue(kor.contains(k));
+		assertEquals(k,SOVratiKorisnika.vratiKorisnika("Ja", "Mill", "devizni", kor));
 	}
 
 }
