@@ -1,40 +1,33 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Toolkit;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GlavniProzor extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GlavniProzor frame = new GlavniProzor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -59,19 +52,32 @@ public class GlavniProzor extends JFrame {
 		JLabel lblIzaberite = new JLabel("Izaberite opciju:");
 		lblIzaberite.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblIzaberite.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIzaberite.setBounds(156, 188, 129, 29);
+		lblIzaberite.setBounds(162, 187, 129, 29);
 		contentPane.add(lblIzaberite);
 		
 		JButton btnDodajKorisnika = new JButton("Dodaj korisnika");
-		btnDodajKorisnika.setBounds(10, 237, 123, 29);
+		btnDodajKorisnika.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GUIKontroler.dodajKorisnika(textField.getText(), textField_1.getText(),(String) comboBox.getSelectedItem());
+				
+			}
+		});
+		btnDodajKorisnika.setBounds(7, 237, 139, 29);
 		contentPane.add(btnDodajKorisnika);
 		
 		JButton btnObrisiKorsinika = new JButton("Obrisi korsinika");
-		btnObrisiKorsinika.setBounds(305, 237, 134, 29);
+		btnObrisiKorsinika.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GUIKontroler.obrisiKorisnika(textField.getText(), textField_1.getText(), (String) comboBox.getSelectedItem());
+				textField.setText(null);
+				textField_1.setText(null);
+			}
+		});
+		btnObrisiKorsinika.setBounds(305, 237, 139, 29);
 		contentPane.add(btnObrisiKorsinika);
 		
 		JButton btnUrediTransakcije = new JButton("Uredi transakcije");
-		btnUrediTransakcije.setBounds(156, 237, 129, 29);
+		btnUrediTransakcije.setBounds(156, 237, 139, 29);
 		contentPane.add(btnUrediTransakcije);
 		
 		JLabel lblImeKorsinika = new JLabel("Ime korsinika:");
@@ -94,7 +100,8 @@ public class GlavniProzor extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"dinarski", "devizni"}));
 		comboBox.setBounds(316, 142, 123, 20);
 		contentPane.add(comboBox);
 		
