@@ -63,8 +63,8 @@ public class UrediTransakcije extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(getLblImeKorisnika());
 		contentPane.add(getLblAdresaKorisnika());
-		contentPane.add(gettextFieldDatumT());
-		contentPane.add(gettextFieldIznosT());
+		contentPane.add(gettextFieldIme());
+		contentPane.add(gettextFieldAdresa());
 		contentPane.add(getComboBox());
 		contentPane.add(getLblVrstaRacuna());
 		contentPane.add(getBtnDodajTransakciju());
@@ -90,7 +90,7 @@ public class UrediTransakcije extends JFrame {
 		return lblAdresaKorisnika;
 	}
 
-	private JTextField gettextFieldDatumT() {
+	private JTextField gettextFieldIme() {
 		if (textFieldImeK == null) {
 			textFieldImeK = new JTextField();
 			textFieldImeK.setToolTipText("");
@@ -100,7 +100,7 @@ public class UrediTransakcije extends JFrame {
 		return textFieldImeK;
 	}
 
-	private JTextField gettextFieldIznosT() {
+	private JTextField gettextFieldAdresa() {
 		if (textFieldAdresaK == null) {
 			textFieldAdresaK = new JTextField();
 			textFieldAdresaK.setToolTipText("");
@@ -161,8 +161,8 @@ public class UrediTransakcije extends JFrame {
 			btnVratiSveTransakcije = new JButton("Vrati sve transakcije");
 			btnVratiSveTransakcije.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					getTextArea().setText(GUIKontroler.PrikaziSveTransakcije(gettextFieldDatumT().getText(), 
-							gettextFieldIznosT().getText(), (String) getComboBox().getSelectedItem()));
+					getTextArea().setText(GUIKontroler.PrikaziSveTransakcije(gettextFieldIme().getText(), 
+							gettextFieldAdresa().getText(), (String) getComboBox().getSelectedItem()));
 				}
 			});
 			btnVratiSveTransakcije.setBounds(10, 225, 157, 23);
@@ -171,11 +171,11 @@ public class UrediTransakcije extends JFrame {
 	}
 
 	public String getTF() {
-		return gettextFieldDatumT().getText();
+		return gettextFieldIme().getText();
 	}
 
 	public String getIT() {
-		return gettextFieldIznosT().getText();
+		return gettextFieldAdresa().getText();
 	}
 
 	public String getCB() {
