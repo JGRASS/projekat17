@@ -103,7 +103,7 @@ public class GlavniProzor extends JFrame {
 				
 			}
 		});
-		btnObrisiKorsinika.setBounds(310, 207, 139, 29);
+		btnObrisiKorsinika.setBounds(304, 207, 139, 29);
 		contentPane.add(btnObrisiKorsinika);
 
 		JButton btnUrediTransakcije = new JButton("Uredi transakcije");

@@ -45,7 +45,7 @@ public class Transakcija implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Datum i vreme transackije: " + datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(datumTransakcije.get(GregorianCalendar.MONTH)+1)+
+		return "Datum i vreme transakcije: " + datumTransakcije.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(datumTransakcije.get(GregorianCalendar.MONTH)+1)+
 				"/"+datumTransakcije.get(GregorianCalendar.YEAR)+" "+datumTransakcije.get(GregorianCalendar.HOUR_OF_DAY)+":"
 				+datumTransakcije.get(GregorianCalendar.MINUTE)
 				+ "\nIznos:" + iznosTransakcije + " "+ valuta ;

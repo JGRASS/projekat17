@@ -77,7 +77,7 @@ public class UrediTransakcije extends JFrame {
 	private JLabel getLblImeKorisnika() {
 		if (lblImeKorisnika == null) {
 			lblImeKorisnika = new JLabel("Ime korisnika:");
-			lblImeKorisnika.setBounds(33, 57, 96, 14);
+			lblImeKorisnika.setBounds(33, 57, 106, 14);
 		}
 		return lblImeKorisnika;
 	}
@@ -94,7 +94,7 @@ public class UrediTransakcije extends JFrame {
 		if (textFieldImeK == null) {
 			textFieldImeK = new JTextField();
 			textFieldImeK.setToolTipText("");
-			textFieldImeK.setBounds(30, 82, 86, 20);
+			textFieldImeK.setBounds(30, 82, 106, 20);
 			textFieldImeK.setColumns(10);
 		}
 		return textFieldImeK;
@@ -104,7 +104,7 @@ public class UrediTransakcije extends JFrame {
 		if (textFieldAdresaK == null) {
 			textFieldAdresaK = new JTextField();
 			textFieldAdresaK.setToolTipText("");
-			textFieldAdresaK.setBounds(167, 82, 86, 20);
+			textFieldAdresaK.setBounds(167, 82, 106, 20);
 			textFieldAdresaK.setColumns(10);
 		}
 		return textFieldAdresaK;
@@ -115,7 +115,7 @@ public class UrediTransakcije extends JFrame {
 			comboBox = new JComboBox();
 			comboBox.setModel(new DefaultComboBoxModel(new String[] {
 					"dinarski", "devizni" }));
-			comboBox.setBounds(314, 82, 96, 20);
+			comboBox.setBounds(306, 82, 106, 20);
 		}
 		return comboBox;
 	}
@@ -123,7 +123,7 @@ public class UrediTransakcije extends JFrame {
 	private JLabel getLblVrstaRacuna() {
 		if (lblVrstaRacuna == null) {
 			lblVrstaRacuna = new JLabel("Vrsta racuna:");
-			lblVrstaRacuna.setBounds(337, 57, 85, 14);
+			lblVrstaRacuna.setBounds(314, 57, 85, 14);
 		}
 		return lblVrstaRacuna;
 	}
@@ -161,8 +161,12 @@ public class UrediTransakcije extends JFrame {
 			btnVratiSveTransakcije = new JButton("Vrati sve transakcije");
 			btnVratiSveTransakcije.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					try{
 					getTextArea().setText(GUIKontroler.PrikaziSveTransakcije(gettextFieldIme().getText(), 
 							gettextFieldAdresa().getText(), (String) getComboBox().getSelectedItem()));
+					} catch(Exception e) {
+						getTextArea().setText(e.getMessage());
+					}
 				}
 			});
 			btnVratiSveTransakcije.setBounds(10, 225, 157, 23);

@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -79,7 +82,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JLabel getLblIZnosT() {
 		if (lblIZnosT == null) {
 			lblIZnosT = new JLabel("Iznos Transakcije:");
-			lblIZnosT.setBounds(10, 24, 100, 20);
+			lblIZnosT.setBounds(10, 24, 113, 20);
 		}
 		return lblIZnosT;
 	}
@@ -87,6 +90,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JTextField getTextFieldIT() {
 		if (textFieldIT == null) {
 			textFieldIT = new JTextField();
+			textFieldIT.setText("0");
 			textFieldIT.setBounds(10, 55, 100, 20);
 			textFieldIT.setColumns(10);
 		}
@@ -106,7 +110,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JLabel getLblValuta() {
 		if (lblValuta == null) {
 			lblValuta = new JLabel("Valuta:");
-			lblValuta.setBounds(144, 24, 81, 20);
+			lblValuta.setBounds(133, 24, 81, 20);
 		}
 		return lblValuta;
 	}
@@ -144,7 +148,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JLabel getLblDatumTransakcije() {
 		if (lblDatumTransakcije == null) {
 			lblDatumTransakcije = new JLabel("Datum transakcije:");
-			lblDatumTransakcije.setBounds(253, 21, 100, 26);
+			lblDatumTransakcije.setBounds(253, 21, 127, 26);
 		}
 		return lblDatumTransakcije;
 	}
@@ -172,6 +176,7 @@ public class ObrisiTransakciju extends JFrame {
 			btnObrisi = new JButton("Obrisi ");
 			btnObrisi.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					try{
 					GUIKontroler.obrisiTransakciju(
 							Double.parseDouble(getTextFieldIT().getText()),
 							(String) getComboBox().getSelectedItem(),
@@ -180,9 +185,13 @@ public class ObrisiTransakciju extends JFrame {
 							(Integer) getSpinner_2().getValue(),
 							(Integer) getSpinner_3().getValue(),
 							(Integer) getSpinner_4().getValue());
+					} catch (NumberFormatException nf) {
+						JOptionPane.showMessageDialog(getContentPane(),
+								"Upisite iznos transakcije!", "Greska", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			});
-			btnObrisi.setBounds(144, 177, 105, 34);
+			btnObrisi.setBounds(161, 177, 105, 34);
 		}
 		return btnObrisi;
 	}

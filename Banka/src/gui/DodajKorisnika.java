@@ -63,22 +63,22 @@ public class DodajKorisnika extends JFrame {
 	}
 	private JLabel getLblImeKorisnika() {
 		if (lblImeKorisnika == null) {
-			lblImeKorisnika = new JLabel("ImeKorisnika:");
-			lblImeKorisnika.setBounds(10, 57, 86, 14);
+			lblImeKorisnika = new JLabel("Ime korisnika:");
+			lblImeKorisnika.setBounds(20, 57, 86, 14);
 		}
 		return lblImeKorisnika;
 	}
 	private JLabel getLblAdresa() {
 		if (lblAdresa == null) {
 			lblAdresa = new JLabel("Adresa:");
-			lblAdresa.setBounds(169, 57, 46, 14);
+			lblAdresa.setBounds(161, 57, 46, 14);
 		}
 		return lblAdresa;
 	}
 	private JTextField getTextFieldIme() {
 		if (textFieldIme == null) {
 			textFieldIme = new JTextField();
-			textFieldIme.setBounds(10, 82, 86, 20);
+			textFieldIme.setBounds(20, 82, 106, 20);
 			textFieldIme.setColumns(10);
 		}
 		return textFieldIme;
@@ -86,7 +86,7 @@ public class DodajKorisnika extends JFrame {
 	private JTextField getTextFieldAdresa() {
 		if (textFieldAdresa == null) {
 			textFieldAdresa = new JTextField();
-			textFieldAdresa.setBounds(151, 82, 86, 20);
+			textFieldAdresa.setBounds(161, 82, 106, 20);
 			textFieldAdresa.setColumns(10);
 		}
 		return textFieldAdresa;
@@ -95,14 +95,14 @@ public class DodajKorisnika extends JFrame {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
 			comboBox.setModel(new DefaultComboBoxModel(new String[] {"dinarski", "devizni"}));
-			comboBox.setBounds(273, 82, 96, 20);
+			comboBox.setBounds(304, 82, 106, 20);
 		}
 		return comboBox;
 	}
 	private JLabel getLblVrstaRacuna() {
 		if (lblVrstaRacuna == null) {
 			lblVrstaRacuna = new JLabel("Vrsta racuna:");
-			lblVrstaRacuna.setBounds(284, 57, 85, 14);
+			lblVrstaRacuna.setBounds(304, 57, 85, 14);
 		}
 		return lblVrstaRacuna;
 	}
@@ -116,7 +116,7 @@ public class DodajKorisnika extends JFrame {
 					dispose();
 				}
 			});
-			btnDodaj.setBounds(140, 178, 124, 23);
+			btnDodaj.setBounds(150, 181, 124, 23);
 		}
 		return btnDodaj;
 	}

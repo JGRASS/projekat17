@@ -10,7 +10,7 @@ public class SOVratiSveTransakcije {
 			return "Nema transakcija!";
 		String s = "";
 		for (int i = 0; i < k.getTransakcije().size(); i++) {
-			s+="\n"+k.getTransakcije().get(i);
+			s+=""+k.getTransakcije().get(i)+"\n";
 			
 		}
 		return s;

@@ -51,8 +51,8 @@ public class ObrisiKorisnika extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		contentPane.setLayout(null);
 		contentPane.add(getLblImeKorisnika());
 		contentPane.add(getLblAdresa());
@@ -66,7 +66,7 @@ public class ObrisiKorisnika extends JFrame {
 	
 	private JLabel getLblImeKorisnika() {
 		if (lblImeKorisnika == null) {
-			lblImeKorisnika = new JLabel("ImeKorisnika:");
+			lblImeKorisnika = new JLabel("Ime korisnika:");
 			lblImeKorisnika.setBounds(10, 57, 86, 14);
 		}
 		return lblImeKorisnika;
@@ -74,14 +74,14 @@ public class ObrisiKorisnika extends JFrame {
 	private JLabel getLblAdresa() {
 		if (lblAdresa == null) {
 			lblAdresa = new JLabel("Adresa:");
-			lblAdresa.setBounds(169, 57, 46, 14);
+			lblAdresa.setBounds(151, 57, 46, 14);
 		}
 		return lblAdresa;
 	}
 	private JTextField getTextFieldIme() {
 		if (textFieldIme == null) {
 			textFieldIme = new JTextField();
-			textFieldIme.setBounds(10, 82, 86, 20);
+			textFieldIme.setBounds(10, 82, 106, 20);
 			textFieldIme.setColumns(10);
 		}
 		return textFieldIme;
@@ -89,7 +89,7 @@ public class ObrisiKorisnika extends JFrame {
 	private JTextField getTextFieldAdresa() {
 		if (textFieldAdresa == null) {
 			textFieldAdresa = new JTextField();
-			textFieldAdresa.setBounds(151, 82, 86, 20);
+			textFieldAdresa.setBounds(151, 82, 106, 20);
 			textFieldAdresa.setColumns(10);
 		}
 		return textFieldAdresa;
@@ -98,14 +98,14 @@ public class ObrisiKorisnika extends JFrame {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
 			comboBox.setModel(new DefaultComboBoxModel(new String[] {"dinarski", "devizni"}));
-			comboBox.setBounds(273, 82, 96, 20);
+			comboBox.setBounds(299, 82, 106, 20);
 		}
 		return comboBox;
 	}
 	private JLabel getLblVrstaRacuna() {
 		if (lblVrstaRacuna == null) {
 			lblVrstaRacuna = new JLabel("Vrsta racuna:");
-			lblVrstaRacuna.setBounds(284, 57, 85, 14);
+			lblVrstaRacuna.setBounds(299, 57, 85, 14);
 		}
 		return lblVrstaRacuna;
 	}

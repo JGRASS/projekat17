@@ -13,6 +13,9 @@ public class SOObrisiTransakciju {
 		tran.setIznosTransakcije(iznos);
 		tran.setValuta(valuta);
 		
+		if(!k.getTransakcije().contains(tran)){
+			throw new RuntimeException("Ne postoji takva transakcija!");
+		}
 		for (int i = 0; i < k.getTransakcije().size(); i++) {
 			if(k.getTransakcije().get(i).equals(tran)){
 				k.getTransakcije().remove(i); 
