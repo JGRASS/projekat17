@@ -43,6 +43,7 @@ public class DodajTransakciju extends JFrame {
 	 * Create the frame.
 	 */
 	public DodajTransakciju() {
+		setResizable(false);
 		setTitle("Dodavanje transakcije");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -60,7 +61,7 @@ public class DodajTransakciju extends JFrame {
 	private JLabel getLabel_1() {
 		if (lblIznosTransakcije == null) {
 			lblIznosTransakcije = new JLabel("Iznos transakcije:");
-			lblIznosTransakcije.setBounds(31, 9, 101, 29);
+			lblIznosTransakcije.setBounds(41, 18, 94, 20);
 		}
 		return lblIznosTransakcije;
 	}
@@ -68,7 +69,7 @@ public class DodajTransakciju extends JFrame {
 	private JTextField getTextField() {
 		if (textField == null) {
 			textField = new JTextField();
-			textField.setBounds(31, 49, 115, 29);
+			textField.setBounds(41, 53, 94, 20);
 			textField.setColumns(10);
 		}
 		return textField;
@@ -79,15 +80,15 @@ public class DodajTransakciju extends JFrame {
 			comboBox = new JComboBox();
 			comboBox.setModel(new DefaultComboBoxModel(new String[] { "RSD",
 					"EUR", "USD" }));
-			comboBox.setBounds(237, 53, 150, 20);
+			comboBox.setBounds(237, 53, 94, 20);
 		}
 		return comboBox;
 	}
 
 	private JLabel getLblValuta() {
 		if (lblValuta == null) {
-			lblValuta = new JLabel("Valuta");
-			lblValuta.setBounds(283, 11, 200, 50);
+			lblValuta = new JLabel("Valuta:");
+			lblValuta.setBounds(237, 18, 94, 20);
 		}
 		return lblValuta;
 	}
@@ -104,7 +105,7 @@ public class DodajTransakciju extends JFrame {
 
 				}
 			});
-			btnDodaj.setBounds(161, 170, 89, 23);
+			btnDodaj.setBounds(149, 132, 119, 42);
 		}
 		return btnDodaj;
 	}

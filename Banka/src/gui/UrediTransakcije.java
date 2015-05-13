@@ -93,7 +93,7 @@ public class UrediTransakcije extends JFrame {
 	private JTextField gettextFieldDatumT() {
 		if (textFieldImeK == null) {
 			textFieldImeK = new JTextField();
-			textFieldImeK.setToolTipText("Format: dd.mm.gg");
+			textFieldImeK.setToolTipText("");
 			textFieldImeK.setBounds(30, 82, 86, 20);
 			textFieldImeK.setColumns(10);
 		}
@@ -103,7 +103,7 @@ public class UrediTransakcije extends JFrame {
 	private JTextField gettextFieldIznosT() {
 		if (textFieldAdresaK == null) {
 			textFieldAdresaK = new JTextField();
-			textFieldAdresaK.setToolTipText("Format: xxx");
+			textFieldAdresaK.setToolTipText("");
 			textFieldAdresaK.setBounds(167, 82, 86, 20);
 			textFieldAdresaK.setColumns(10);
 		}

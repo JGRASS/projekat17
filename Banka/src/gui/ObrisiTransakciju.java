@@ -30,6 +30,8 @@ public class ObrisiTransakciju extends JFrame {
 	private JSpinner spinner_3;
 	private JSpinner spinner_4;
 	private JButton btnObrisi;
+	private JLabel lblSat;
+	private JLabel lblMinut;
 
 	/**
 	 * Launch the application.
@@ -51,6 +53,7 @@ public class ObrisiTransakciju extends JFrame {
 	 * Create the frame.
 	 */
 	public ObrisiTransakciju() {
+		setResizable(false);
 		setTitle("Brisanje Transakcija");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -69,12 +72,14 @@ public class ObrisiTransakciju extends JFrame {
 		contentPane.add(getSpinner_3());
 		contentPane.add(getSpinner_4());
 		contentPane.add(getBtnObrisi());
+		contentPane.add(getLblSat());
+		contentPane.add(getLblMinut());
 	}
 
 	private JLabel getLblIZnosT() {
 		if (lblIZnosT == null) {
 			lblIZnosT = new JLabel("Iznos Transakcije:");
-			lblIZnosT.setBounds(10, 10, 100, 34);
+			lblIZnosT.setBounds(10, 24, 100, 20);
 		}
 		return lblIZnosT;
 	}
@@ -93,7 +98,7 @@ public class ObrisiTransakciju extends JFrame {
 			comboBox = new JComboBox();
 			comboBox.setModel(new DefaultComboBoxModel(new String[] { "RSD",
 					"EUR", "USD" }));
-			comboBox.setBounds(174, 48, 75, 34);
+			comboBox.setBounds(133, 55, 81, 20);
 		}
 		return comboBox;
 	}
@@ -101,7 +106,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JLabel getLblValuta() {
 		if (lblValuta == null) {
 			lblValuta = new JLabel("Valuta:");
-			lblValuta.setBounds(174, 5, 81, 44);
+			lblValuta.setBounds(144, 24, 81, 20);
 		}
 		return lblValuta;
 	}
@@ -109,8 +114,9 @@ public class ObrisiTransakciju extends JFrame {
 	private JSpinner getSpinner() {
 		if (spinner == null) {
 			spinner = new JSpinner();
+			spinner.setToolTipText("Dan u mesecu");
 			spinner.setModel(new SpinnerNumberModel(1, 1, 31, 1));
-			spinner.setBounds(277, 55, 29, 20);
+			spinner.setBounds(232, 55, 34, 20);
 		}
 		return spinner;
 	}
@@ -118,8 +124,9 @@ public class ObrisiTransakciju extends JFrame {
 	private JSpinner getSpinner_1() {
 		if (spinner_1 == null) {
 			spinner_1 = new JSpinner();
+			spinner_1.setToolTipText("Mesec ");
 			spinner_1.setModel(new SpinnerNumberModel(1, 1, 12, 1));
-			spinner_1.setBounds(316, 52, 29, 27);
+			spinner_1.setBounds(276, 55, 34, 20);
 		}
 		return spinner_1;
 	}
@@ -127,8 +134,9 @@ public class ObrisiTransakciju extends JFrame {
 	private JSpinner getSpinner_2() {
 		if (spinner_2 == null) {
 			spinner_2 = new JSpinner();
+			spinner_2.setToolTipText("Godina");
 			spinner_2.setModel(new SpinnerNumberModel(2000, 2000, 2015, 1));
-			spinner_2.setBounds(350, 52, 53, 27);
+			spinner_2.setBounds(320, 55, 60, 20);
 		}
 		return spinner_2;
 	}
@@ -136,7 +144,7 @@ public class ObrisiTransakciju extends JFrame {
 	private JLabel getLblDatumTransakcije() {
 		if (lblDatumTransakcije == null) {
 			lblDatumTransakcije = new JLabel("Datum transakcije:");
-			lblDatumTransakcije.setBounds(284, 10, 140, 34);
+			lblDatumTransakcije.setBounds(253, 21, 100, 26);
 		}
 		return lblDatumTransakcije;
 	}
@@ -145,7 +153,7 @@ public class ObrisiTransakciju extends JFrame {
 		if (spinner_3 == null) {
 			spinner_3 = new JSpinner();
 			spinner_3.setModel(new SpinnerNumberModel(0, 0, 24, 1));
-			spinner_3.setBounds(316, 90, 34, 20);
+			spinner_3.setBounds(253, 116, 34, 20);
 		}
 		return spinner_3;
 	}
@@ -154,7 +162,7 @@ public class ObrisiTransakciju extends JFrame {
 		if (spinner_4 == null) {
 			spinner_4 = new JSpinner();
 			spinner_4.setModel(new SpinnerNumberModel(0, 0, 60, 1));
-			spinner_4.setBounds(360, 90, 43, 20);
+			spinner_4.setBounds(310, 116, 43, 20);
 		}
 		return spinner_4;
 	}
@@ -174,8 +182,22 @@ public class ObrisiTransakciju extends JFrame {
 							(Integer) getSpinner_4().getValue());
 				}
 			});
-			btnObrisi.setBounds(160, 177, 89, 23);
+			btnObrisi.setBounds(144, 177, 105, 34);
 		}
 		return btnObrisi;
+	}
+	private JLabel getLblSat() {
+		if (lblSat == null) {
+			lblSat = new JLabel("Sat:");
+			lblSat.setBounds(253, 91, 46, 14);
+		}
+		return lblSat;
+	}
+	private JLabel getLblMinut() {
+		if (lblMinut == null) {
+			lblMinut = new JLabel("Minut:");
+			lblMinut.setBounds(307, 91, 46, 14);
+		}
+		return lblMinut;
 	}
 }
